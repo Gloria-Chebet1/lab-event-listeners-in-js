@@ -2,21 +2,26 @@
 
 // Function to change the background color when a button is clicked
 function changeBackgroundColor() {
-  document.body.style.backgroundColor = 'blue'
+  const r = Math.floor(Math.random() * 256)
+  const g = Math.floor(Math.random() * 256)
+  const b = Math.floor(Math.random() * 256)
+
+  document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
 }
 
-// Function to reset the background color when the reset button is double-clicked
+// Function to reset the background color when the body is double-clicked
 function resetBackgroundColor() {
-  document.body.style.backgroundColor = 'white'
+  document.body.style.backgroundColor = ''
 }
 
 // Capture Keyboard Input
 
 // Function to display the key pressed by the user
 function displayKeyPress(event) {
-  const keyDisplay = document.getElementById('keyPressed')
-  if (keyDisplay) {
-    keyDisplay.textContent = `Key pressed: ${event.key}`
+  const keyPressDisplay = document.getElementById('keyPressDisplay')
+
+  if (keyPressDisplay) {
+    keyPressDisplay.textContent = `Key pressed: ${event.key}`
   }
 }
 
@@ -25,10 +30,10 @@ function displayKeyPress(event) {
 // Function to display user input in real-time
 function displayUserInput() {
   const textInput = document.getElementById('textInput')
-  const displayOutput = document.getElementById('displayInput')
+  const textInputDisplay = document.getElementById('textInputDisplay')
 
-  if (textInput && displayOutput) {
-    displayOutput.textContent = `User Input: ${textInput.value}`
+  if (textInput && textInputDisplay) {
+    textInputDisplay.textContent = `You typed: ${textInput.value}`
   }
 }
 
